@@ -20,9 +20,9 @@
 
 <body>
 
-    <div class='bg hidden'></div>
+    <div class='bg'></div>
     <div id="searchContainer"
-        class="searchBox hidden">
+        class="searchBox">
         <button class="searchControl1"
             id="searchBtn"></button>
         <h2>Your city:</h2>
@@ -32,14 +32,18 @@
             placeholder="  City name">
 
     </div>
-    <div id="weatherContainer">
-        <div id='imgbox'></div>
+
+    <div id='imgbox'
+        class="hidden"></div>
+    <div id="weatherContainer"
+        class="hidden">
         <div class="context">
             <h1 id="weatherText">晴天</h1>
             <h2 id="cityHeader">Duffel</h2>
         </div>
-        <hr>
-        <div class="fivedays">
+
+        <hr class="hidden">
+        <div class="fivedays hidden">
             <span>13 &#176;</span>
             <span>13 &#176;</span>
             <span id="temperature">15&#176;</span>
@@ -47,13 +51,12 @@
             <span>13 &#176;</span>
         </div>
         <hr>
-        <div id="dateInfo">
+        <div id="dateInfo"
+            class="hidden">
             <span id="week"></span>|<span id="date"></span>|<span id="time"></span>
         </div>
-
-
-
     </div>
+
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
