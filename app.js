@@ -1,8 +1,8 @@
 let appId = `85913e87a201cdcbb7985cea325b4137`;
 let units = `metric`;
 
-function searchWeather(searchTerm) {
-  fetch(
+async function searchWeather(searchTerm) {
+  /*   fetch(
     `http://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&APPID=${appId}&units=${units}`
   )
     .then(result => {
@@ -10,7 +10,21 @@ function searchWeather(searchTerm) {
     })
     .then(result => {
       init(result);
-    });
+    }); */
+
+  const response = await axios.get(
+    "http://api.openweathermap.org/data/2.5/forecast",
+    {
+      params: {
+        q: searchTerm,
+        APPID: appId,
+        units: units
+      }
+    }
+  );
+  let result = await response.data;
+  console.log(result);
+  init(result);
 }
 const imgbox = document.getElementById("imgbox");
 const bg = document.querySelector(".bg");
@@ -23,9 +37,9 @@ const weatherText = document.querySelector("#weaterText");
 const dateInfo = document.querySelector("#dateInfo");
 
 function init(resultFromServer) {
-  console.log(resultFromServer.weather[0].main);
-  const temp = Math.floor(resultFromServer.main.temp);
-  switch (resultFromServer.weather[0].main) {
+  console.log(resultFromServer.list[0].main);
+  const temp = Math.floor(resultFromServer.list[0].main.temp);
+  switch (resultFromServer.list[0].main) {
     case "Clouds":
       imgbox.style.backgroundImage = 'url("cloud.jpg")';
       weatherText.innerText = "多云";
@@ -48,19 +62,20 @@ function init(resultFromServer) {
       break;
     case "Mist":
       imgbox.style.backgroundImage = 'url("mist.jpg")';
-      weatherText.innerText = "雾";
+      weatherText.innerText = "雾气";
       break;
 
     case "Fog":
       imgbox.style.backgroundImage = 'url("mist.jpg")';
       weatherText.innerText = "大雾";
     case "Smoke":
-      weatherText.innerText = "霾";
+      weatherText.innerText = "雾霾";
       imgbox.style.backgroundImage = 'url("mist.jpg")';
       break;
     case "clear":
       imgbox.style.backgroundImage = 'url("clear.jpg")';
-      weatherText.innerText = "晴";
+      weatherText.innerText = "晴天";
+      cityHeader.innerText = input.value;
   }
   temperature.innerHTML = `${temp}	
   &#176;`;

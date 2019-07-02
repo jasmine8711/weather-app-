@@ -11,14 +11,18 @@
     <link rel="stylesheet"
         href="styles.css">
 
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display&display=swap"
+        rel="stylesheet">
+
+
     <title>天气</title>
 </head>
 
 <body>
 
-    <div class='bg'></div>
+    <div class='bg hidden'></div>
     <div id="searchContainer"
-        class="searchBox">
+        class="searchBox hidden">
         <button class="searchControl1"
             id="searchBtn"></button>
         <h2>Your city:</h2>
@@ -29,21 +33,29 @@
 
     </div>
     <div id="weatherContainer">
-        <div id='imgbox'
-            class="hidden"></div>
+        <div id='imgbox'></div>
         <div class="context">
-            <h1 id="weatherText">晴</h1>
-            <h2 id="cityHeader"
-                class="hidden">
+            <h1 id="weatherText">晴天</h1>
+            <h2 id="cityHeader">Duffel</h2>
         </div>
-
-
-        <div id="dateInfo"
-            class="hidden">
+        <hr>
+        <div class="fivedays">
+            <span>13 &#176;</span>
+            <span>13 &#176;</span>
+            <span id="temperature">15&#176;</span>
+            <span>13 &#176;</span>
+            <span>13 &#176;</span>
+        </div>
+        <hr>
+        <div id="dateInfo">
             <span id="week"></span>|<span id="date"></span>|<span id="time"></span>
         </div>
-        <div id="temperature">15</div>
+
+
+
     </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
 </body>
 

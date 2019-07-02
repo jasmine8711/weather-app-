@@ -22,7 +22,7 @@ body {
 #imgbox {
   width: 300px;
   height: 300px;
-  border-radius: 40%;
+  border-radius: 45%;
   margin-top: 3em;
   background: url(clear.jpg);
   background-size: contain;
@@ -50,6 +50,7 @@ body {
 #searchContainer h2 {
   font-size: 30px;
   padding: 10px;
+  font-family: "DM Serif Display", serif;
 }
 
 #searchContainer #searchInput {
@@ -68,6 +69,71 @@ body {
   background-repeat: no-repeat;
   cursor: pointer;
   border: none;
+}
+
+.context {
+  margin-top: 1.5rem;
+  width: 80px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+#weatherText {
+  font-size: 80px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+#cityHeader {
+  position: absolute;
+  text-align: center;
+  left: 200px;
+  top: 450px;
+  width: 150px;
+  height: 40px;
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
+  font-family: "DM Serif Display", serif;
+  font-size: 16px;
+  line-height: 40px;
+  color: white;
+  background: url(inputbg.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+#dateInfo {
+  margin-top: 10px;
+  width: 100vw;
+  text-align: center;
+  font-size: 20px;
+}
+
+hr {
+  margin-top: 10px;
+  width: 60vw;
+  text-align: center;
+}
+
+.fivedays {
+  text-align: center;
+  width: 100vw;
+  height: 50px;
+  line-height: 50px;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.fivedays #temperature {
+  font-size: 50px;
 }
 
 .hidden {
