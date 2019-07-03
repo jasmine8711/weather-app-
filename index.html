@@ -20,7 +20,7 @@
 
 <body>
 
-    <div class='bg hidden'></div>
+    <div class='bg'></div>
     <div id="searchContainer"
         class="searchBox">
         <button class="searchControl1"
@@ -30,26 +30,25 @@
             id="searchInput"
             class="searchControl1"
             placeholder="  City name">
-
     </div>
 
     <div id='imgbox'
-        class="">
+        class="hidden">
     </div>
-    <div id="temperature">15 &#176;</div>
+    <div id="temperature"></div>
     <div id="weatherContainer"
-        class="">
+        class="hidden">
         <div class="context">
-            <h1 id="weatherText">晴天</h1>
+            <h1 id="weatherText"></h1>
             <h2 id="cityHeader"></h2>
         </div>
 
     </div>
     <div id="dateInfo"
-        class="">
-        <span id="week"></span>|<span id="date"></span>|<span id="time"></span>
+        class="hidden">
+        <span id="week"></span>|<span id="date"></span>|<span id="time"></span>|<span id="description"></span>
     </div>
-    <table class="fivedays"
+    <table class="fivedays hidden"
         id="table">
         <tr id="tableweek">
             <td></td>
@@ -80,10 +79,6 @@
             <td></td>
         </tr>
     </table>
-
-    </table>
-
-
 
 
 
