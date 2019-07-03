@@ -20,7 +20,7 @@
 
 <body>
 
-    <div class='bg'></div>
+    <div class='bg hidden'></div>
     <div id="searchContainer"
         class="searchBox">
         <button class="searchControl1"
@@ -34,28 +34,57 @@
     </div>
 
     <div id='imgbox'
-        class="hidden"></div>
+        class="">
+    </div>
+    <div id="temperature">15 &#176;</div>
     <div id="weatherContainer"
-        class="hidden">
+        class="">
         <div class="context">
             <h1 id="weatherText">晴天</h1>
-            <h2 id="cityHeader">Duffel</h2>
+            <h2 id="cityHeader"></h2>
         </div>
 
-        <hr class="hidden">
-        <div class="fivedays hidden">
-            <span>13 &#176;</span>
-            <span>13 &#176;</span>
-            <span id="temperature">15&#176;</span>
-            <span>13 &#176;</span>
-            <span>13 &#176;</span>
-        </div>
-        <hr>
-        <div id="dateInfo"
-            class="hidden">
-            <span id="week"></span>|<span id="date"></span>|<span id="time"></span>
-        </div>
     </div>
+    <div id="dateInfo"
+        class="">
+        <span id="week"></span>|<span id="date"></span>|<span id="time"></span>
+    </div>
+    <table class="fivedays"
+        id="table">
+        <tr id="tableweek">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr id="icon">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr id="max">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr id="min">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    </table>
+
+
+
 
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

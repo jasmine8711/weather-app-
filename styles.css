@@ -59,6 +59,7 @@ body {
   width: 50vw;
   height: 2rem;
   border-radius: 10px;
+  font-size: 20px;
   background: none;
   border: 1px solid black;
 }
@@ -75,7 +76,7 @@ body {
 
 .context {
   margin-top: 1rem;
-  width: 80px;
+  width: 150px;
   height: 160px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -84,6 +85,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  position: relative;
 }
 
 #weatherText {
@@ -94,22 +98,15 @@ body {
 }
 
 #cityHeader {
-  position: relative;
-  top: -190px;
-  left: 66px;
-  text-align: center;
-  width: 150px;
+  width: 160px;
   height: 40px;
-  -webkit-transform: rotateZ(90deg);
-          transform: rotateZ(90deg);
   font-family: "DM Serif Display", serif;
-  font-size: 16px;
+  font-size: 25px;
   line-height: 40px;
-  color: white;
-  background: url(inputbg.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  padding-left: 3px;
+  border-left: 1px solid black;
+  margin: 3rem;
+  position: relative;
 }
 
 #dateInfo {
@@ -134,13 +131,30 @@ hr {
   font-size: 20px;
 }
 
-.fivedays #temperature {
-  font-size: 50px;
+#temperature {
+  position: relative;
+  top: 5%;
+  right: 5%;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 25px;
+  color: white;
+  background: url(round.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#table {
+  width: 60%;
+  border-top: 1px black solid;
+  border-bottom: 1px black solid;
 }
 
 .hidden {
-  display: none;
   opacity: 0;
+  display: none;
 }
 
 @media only screen and (min-width: 375px) {

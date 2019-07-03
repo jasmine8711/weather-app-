@@ -1,5 +1,17 @@
 let appId = `85913e87a201cdcbb7985cea325b4137`;
 let units = `metric`;
+const imgbox = document.getElementById("imgbox");
+const bg = document.querySelector(".bg");
+const input = document.querySelector("#searchInput");
+const searchBox = document.querySelector(".searchBox");
+const cityHeader = document.querySelector("#cityHeader");
+const temperature = document.querySelector("#temperature");
+const weatherText = document.querySelector("#weaterText");
+const weatherContainer = document.getElementById("weatherContainer");
+const hrs = document.querySelectorAll(".hr");
+const fiveDays = document.querySelector(".fivedays");
+const dateInfo = document.querySelector("#dateInfo");
+const table = document.getElementById("table");
 
 async function searchWeather(searchTerm) {
   /*   fetch(
@@ -23,22 +35,14 @@ async function searchWeather(searchTerm) {
     }
   );
   let result = await response.data;
-  console.log(result);
   init(result);
 }
-const imgbox = document.getElementById("imgbox");
-const bg = document.querySelector(".bg");
-const input = document.querySelector("#searchInput");
-const searchBox = document.querySelector(".searchBox");
-const cityHeader = document.querySelector("#cityHeader");
-const temperature = document.querySelector("#temperature");
-const weatherText = document.querySelector("#weaterText");
-
-const dateInfo = document.querySelector("#dateInfo");
 
 function init(resultFromServer) {
-  console.log(resultFromServer.list[0].main);
+  console.log(resultFromServer.list[0].main.temp_max);
   const temp = Math.floor(resultFromServer.list[0].main.temp);
+  console.log(resultFromServer.city.name);
+
   switch (resultFromServer.list[0].main) {
     case "Clouds":
       imgbox.style.backgroundImage = 'url("cloud.jpg")';
@@ -79,8 +83,30 @@ function init(resultFromServer) {
   }
   temperature.innerHTML = `${temp}	
   &#176;`;
+  cityHeader.innerText = resultFromServer.city.name;
+  //max and min
+  const listArray = resultFromServer.list;
+  console.log(listArray);
+
+  // console.log(dayTemps[0][0].main.temp_min);
+
+  const dayMins = [];
+  dayTemps[0].forEach(x => {
+    dayMins.push(x.main.temp_min);
+  });
+  const dayMin = Math.min(parseInt(dayMins));
+  console.log(dayMin);
 }
 
+function chunk(array, size) {
+  const chunked_arr = [];
+  let index = 0;
+  while (index < array.length) {
+    chunked_arr.push(array.slice(index, size + index));
+    index += size;
+  }
+  return chunked_arr;
+}
 console.log(searchBox);
 document.getElementById("searchBtn").addEventListener("click", showWeather);
 input.addEventListener("keyup", showWeather);
@@ -96,7 +122,11 @@ function showWeather(e) {
     cityHeader.classList.remove("hidden");
     imgbox.classList.remove("hidden");
     dateInfo.classList.remove("hidden");
-    cityHeader.innerText = input.value;
+    hrs.forEach(x => {
+      x.classList.remove("hidden");
+    });
+    weatherContainer.classList.remove("hidden");
+    fiveDays.classList.remove("hidden");
     let searchTerm = input.value;
     if (searchTerm) {
       searchWeather(searchTerm);
@@ -104,6 +134,7 @@ function showWeather(e) {
   }
 }
 
+//time
 const week = document.getElementById("week");
 const date = document.getElementById("date");
 const time = document.getElementById("time");
@@ -112,31 +143,37 @@ let d = new Date();
 let w = d.getDay(); //0-6 week
 let h = d.getHours(); // 0 - 23
 let m = d.getMinutes(); // 0 - 59
-
-console.log(h);
+const weekContext = [
+  "Sun.",
+  "Mon.",
+  "Tue. ",
+  "Wed. ",
+  "Thu. ",
+  "Fri. ",
+  "Sat. "
+];
 switch (w) {
   case 1:
-    week.innerText = "Mon. ";
+    week.innerText = weekContext[1];
     break;
   case 2:
-    week.innerText = "Tue. ";
-    console.log("nihao");
+    week.innerText = weekContext[2];
     break;
   case 3:
-    week.innerText = "Wed. ";
+    week.innerText = weekContext[3];
 
     break;
   case 4:
-    week.innerText = "Thu. ";
+    week.innerText = weekContext[4];
     break;
   case 5:
-    week.innerText = "Fri. ";
+    week.innerText = weekContext[5];
     break;
   case 6:
-    week.innerText = "Sat. ";
+    week.innerText = weekContext[6];
     break;
   case 0:
-    week.innerText = "Sun. ";
+    week.innerText = weekContext[0];
     break;
 }
 setInterval(getCurrentTime, 1000);
@@ -168,5 +205,22 @@ month[11] = "December";
 
 var n = month[d.getMonth()];
 var today = d.getDate();
-console.log(today);
+
 date.innerText = ` ${n} ${today} `;
+
+//table
+//put weeks in table
+const tableweekdays = document.getElementById("tableweek").children;
+console.log(w);
+
+for (let x = 0; x < 5; x++) {
+  (function() {
+    let y = w;
+    w++;
+    if (y > 6) {
+      y = 0;
+    }
+    tableweekdays[x].innerText = weekContext[y];
+  })();
+}
+//put icon in table
