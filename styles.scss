@@ -62,7 +62,7 @@ body {
 
 .context {
   width: 150px;
-  height: 160px;
+  height: 150px;
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
@@ -72,6 +72,7 @@ body {
 }
 #weatherText {
   font-size: 60px;
+  line-height: 80px;
   // background: green;
   width: 100%;
   height: 100%;
@@ -82,6 +83,7 @@ body {
   height: 40px;
   font-family: "DM Serif Display", serif;
   font-size: 25px;
+
   line-height: 40px;
   padding-left: 3px;
   border-left: 1px solid black;
@@ -106,9 +108,9 @@ body {
   font-size: 20px;
 }
 #temperature {
-  position: relative;
+  /*   position: relative;
   top: 1%;
-  right: 5%;
+  right: 5%; */
   width: 60px;
   height: 60px;
   text-align: center;
@@ -154,11 +156,9 @@ body {
   }
 
   .context {
-    margin-top: 2rem;
-    width: 80px;
-    height: 160px;
     display: flex;
     flex-flow: row wrap;
+    width: 60px;
   }
   #cityHeader {
     position: relative;
