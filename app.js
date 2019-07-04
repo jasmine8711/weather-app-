@@ -65,7 +65,7 @@ function init(resultFromServer) {
       weatherText.innerText = "大雪";
       break;
     case "Drizzle":
-      imgbox.style.backgroundImage = 'url("rain.jpg")';
+      imgbox.style.backgroundImage = 'url("littlerain.jpeg")';
       weatherText.innerText = "细雨";
       break;
     case "Rain":
@@ -82,7 +82,7 @@ function init(resultFromServer) {
       break;
 
     case "Fog":
-      imgbox.style.backgroundImage = 'url("mist.jpg")';
+      imgbox.style.backgroundImage = 'url("mist2.jpg")';
       weatherText.innerText = "大雾";
     case "Smoke":
       weatherText.innerText = "雾霾";
@@ -191,7 +191,8 @@ const weekContext = [
   "Fri. ",
   "Sat. "
 ];
-switch (w) {
+week.style.fontWeight = "bolder";
+/* switch (w) {
   case 1:
     week.innerText = weekContext[1];
     break;
@@ -214,7 +215,7 @@ switch (w) {
   case 0:
     week.innerText = weekContext[0];
     break;
-}
+} */
 setInterval(getCurrentTime, 1000);
 function getCurrentTime() {
   if (h < 10 && m < 10) {
@@ -251,15 +252,15 @@ date.innerText = ` ${n} ${today} `;
 //put weeks in table
 const tableweekdays = document.getElementById("tableweek").children;
 //console.log(w);
-
+let y = w;
 for (let x = 0; x < 5; x++) {
   (function() {
-    let y = w;
-    w++;
-    if (y > 6) {
-      y = 0;
+    y++;
+    if (y <= 7) {
+      tableweekdays[x].innerText = weekContext[y - 1];
+    } else if (y > 7 && y < 11) {
+      tableweekdays[x].innerText = weekContext[y - 8];
     }
-    tableweekdays[x].innerText = weekContext[y];
   })();
 }
 

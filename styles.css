@@ -75,40 +75,58 @@ body {
   border: none;
 }
 
-.context {
-  width: 150px;
-  height: 150px;
+#weatherContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -ms-flex-line-pack: start;
-      align-content: flex-start;
-  position: relative;
-  top: -15px;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 60vw;
+  height: 180px;
+}
+
+#temperature {
+  /*   position: relative;
+  top: 1%;
+  right: 5%; */
+  width: 15vw;
+  height: 15vw;
+  text-align: center;
+  line-height: 60px;
+  font-size: 25px;
+  color: white;
+  background: url(round.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #weatherText {
   font-size: 60px;
   line-height: 80px;
-  width: 100%;
+  width: 20vw;
   height: 100%;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60px;
 }
 
 #cityHeader {
-  width: 160px;
-  height: 40px;
   font-family: "DM Serif Display", serif;
+  width: 20vw;
   font-size: 25px;
   line-height: 40px;
   padding-left: 3px;
   border-left: 1px solid black;
-  margin: 3rem;
-  position: relative;
 }
 
 #dateInfo {
@@ -127,23 +145,8 @@ body {
   font-size: 20px;
 }
 
-#temperature {
-  /*   position: relative;
-  top: 1%;
-  right: 5%; */
-  width: 60px;
-  height: 60px;
-  text-align: center;
-  line-height: 60px;
-  font-size: 25px;
-  color: white;
-  background: url(round.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
 #table {
-  width: 60%;
+  width: 80%;
   border-top: 1px black solid;
   border-bottom: 1px black solid;
 }
@@ -169,22 +172,12 @@ body {
   display: none;
 }
 
-@media only screen and (min-width: 375px) {
+@media only screen and (max-width: 376px) {
   #imgbox {
     width: 300px;
     height: 300px;
     border-radius: 45%;
     margin-top: 3em;
-  }
-  .context {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    width: 60px;
   }
   #cityHeader {
     position: relative;
@@ -193,24 +186,10 @@ body {
   }
 }
 
-@media only screen and (min-width: 411px) {
-  #imgbox {
-    width: 300px;
-    height: 300px;
-    border-radius: 45%;
-    margin-top: 3em;
-  }
-  .context {
-    margin-top: 2rem;
-    width: 80px;
-    height: 180px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
+@media only screen and (max-width: 415px) {
+  #temperature {
+    position: relative;
+    top: 10px;
   }
 }
 
@@ -251,18 +230,6 @@ body {
     background-size: cover;
     background-position-y: 100vh;
   }
-  .context {
-    margin-top: 3rem;
-    width: 80px;
-    height: 300px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-  }
   #weatherText {
     font-size: 90px;
     width: 100%;
@@ -301,18 +268,6 @@ body {
     background: url(center.jpg);
     background-size: cover;
     background-position-y: 100vh;
-  }
-  .context {
-    margin-top: 3rem;
-    width: 80px;
-    height: 300px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
   }
   #weatherText {
     font-size: 90px;
