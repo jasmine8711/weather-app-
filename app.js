@@ -1,4 +1,6 @@
 let appId = `85913e87a201cdcbb7985cea325b4137`;
+let unsplashAccessKey = `f31d276c4819d10237d10463d174f4fe8e02086ee8a43a8371a2d0632d4d3a6a`;
+let unsplashSecretkey = `2968c785b0d6273ce8fdf38d1a9f0171dc01604a9967815f83d8b4aae4bd57f2`;
 let units = `metric`;
 const imgbox = document.getElementById("imgbox");
 const bg = document.querySelector(".bg");
@@ -19,22 +21,12 @@ const week = document.getElementById("week");
 const date = document.getElementById("date");
 const time = document.getElementById("time");
 const description = document.getElementById("description");
+const cityImage = document.querySelector(".cityImage");
 
 console.log(min);
-
 async function searchWeather(searchTerm) {
-  /*   fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&APPID=${appId}&units=${units}`
-  )
-    .then(result => {
-      return result.json();
-    })
-    .then(result => {
-      init(result);
-    }); */
-
   const response = await axios.get(
-    "http://api.openweathermap.org/data/2.5/forecast",
+    "https://api.openweathermap.org/data/2.5/forecast",
     {
       params: {
         q: searchTerm,
@@ -43,8 +35,9 @@ async function searchWeather(searchTerm) {
       }
     }
   );
+
   let result = await response.data;
-  init(result);
+  await init(result);
 }
 
 function init(resultFromServer) {
@@ -153,22 +146,30 @@ function chunk(array, size) {
 document.getElementById("searchBtn").addEventListener("click", showWeather);
 input.addEventListener("keyup", showWeather);
 
+function removeHidden() {
+  bg.classList.add("hidden");
+  searchBox.classList.add("hidden");
+  cityHeader.classList.remove("hidden");
+  imgbox.classList.remove("hidden");
+  dateInfo.classList.remove("hidden");
+  hrs.forEach(x => {
+    x.classList.remove("hidden");
+  });
+  weatherContainer.classList.remove("hidden");
+  fiveDays.classList.remove("hidden");
+  cityImage.classList.remove("hidden");
+}
+
 function showWeather(e) {
   if (input.value == "") {
     alert("please enter your city!");
     return;
   }
+  /*  if (result.error) {
+    alert(`Your city doesn't exist!`);
+  } */
   if (e.keyCode == 13) {
-    bg.classList.add("hidden");
-    searchBox.classList.add("hidden");
-    cityHeader.classList.remove("hidden");
-    imgbox.classList.remove("hidden");
-    dateInfo.classList.remove("hidden");
-    hrs.forEach(x => {
-      x.classList.remove("hidden");
-    });
-    weatherContainer.classList.remove("hidden");
-    fiveDays.classList.remove("hidden");
+    removeHidden();
     let searchTerm = input.value;
     if (searchTerm) {
       searchWeather(searchTerm);
