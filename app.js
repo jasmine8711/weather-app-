@@ -23,7 +23,19 @@ const time = document.getElementById("time");
 const description = document.getElementById("description");
 const cityImage = document.querySelector(".cityImage");
 
-console.log(min);
+async function searchPhoto(search) {
+  const response = await axios.get(
+    `https://api.unsplash.com/photos/random?query=${search}&client_id=${unsplashAccessKey}`
+  );
+  let cityimgresult = await response.data;
+  console.log(response);
+  showRandomImg(cityimgresult);
+}
+
+function showRandomImg(imgFromApi) {
+  let resultURL = imgFromApi.urls.regular;
+  cityImage.style.backgroundImage = `url("${resultURL}")`;
+}
 async function searchWeather(searchTerm) {
   const response = await axios.get(
     "https://api.openweathermap.org/data/2.5/forecast",
@@ -35,7 +47,13 @@ async function searchWeather(searchTerm) {
       }
     }
   );
-
+  /*     let statusCode = await response.status;
+    if (statusCode > 299) {
+      console.log(
+        `Status code is ${statusCode} with message: ${response.statusText}`
+      );
+      return;
+    } */
   let result = await response.data;
   await init(result);
 }
@@ -73,7 +91,6 @@ function init(resultFromServer) {
       imgbox.style.backgroundImage = 'url("mist.jpg")';
       weatherText.innerText = "雾气";
       break;
-
     case "Fog":
       imgbox.style.backgroundImage = 'url("mist2.jpg")';
       weatherText.innerText = "大雾";
@@ -81,7 +98,7 @@ function init(resultFromServer) {
       weatherText.innerText = "雾霾";
       imgbox.style.backgroundImage = 'url("mist.jpg")';
       break;
-    case "clear":
+    case "Clear":
       imgbox.style.backgroundImage = 'url("clear.jpg")';
       weatherText.innerText = "晴天";
       cityHeader.innerText = input.value;
@@ -173,6 +190,7 @@ function showWeather(e) {
     let searchTerm = input.value;
     if (searchTerm) {
       searchWeather(searchTerm);
+      searchPhoto(searchTerm);
     }
   }
 }
@@ -252,9 +270,9 @@ date.innerText = ` ${n} ${today} `;
 //table
 //put weeks in table
 const tableweekdays = document.getElementById("tableweek").children;
-//console.log(w);
+//next four days week
 let y = w;
-for (let x = 0; x < 5; x++) {
+/* for (let x = 0; x < 5; x++) {
   (function() {
     y++;
     if (y <= 7) {
@@ -263,6 +281,11 @@ for (let x = 0; x < 5; x++) {
       tableweekdays[x].innerText = weekContext[y - 8];
     }
   })();
+} */
+for (let x = 0; x < 5; x++) {
+  (function() {
+    y++;
+    tableweekdays[x].innerText = weekContext[y % 7];
+  })();
 }
-
 //put icon in table

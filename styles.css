@@ -251,6 +251,9 @@ body {
   .cityImage {
     width: 65vw;
     height: 100vh;
+    background: purple;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: absolute;
     top: 0;
     left: 0;
