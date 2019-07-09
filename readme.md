@@ -9,10 +9,11 @@ We need to create a web app of weather.
 ## features
 
 1. You can type in your city and press enter to check the weather , or you can press the button on the screen.
-1. The website will return you a nice designed chinese art style user interface. you will have a tranditional chinese painting referrence the weater .Temperature will display in the chinese stamp with a description of the weather in Chinese.Don't worry if you can not read Chinese , you will find the English information blow the Chinese characters.
-   You can also find your city next to the Chinese description of the weather.
+1. The website will return you a nice designed chinese art style interface. you will have a tranditional chinese painting referrence the weater .Temperature will display in the chinese stamp with a description of the weather in Chinese.Don't worry if you can not read Chinese , you will find the English information blow the Chinese characters.
+1. You can also find your city next to the Chinese description of the weather.
 1. Display the date, week, time, description of the weather.
 1. display the highest temperature and the lowset temperaturn of the next 4 days.
+1. On the computer screen , it shows the random pictures of the city, but it won't show on mobile and tablet.
 
 ##What do i learn.
 
