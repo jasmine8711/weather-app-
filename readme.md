@@ -1,16 +1,23 @@
-#Weather App
-ou can enter your city and the app will show you the next five days of weather in your city. Temperature will show together with a 'stamp' that describes the weather in Chinese. Don't worry if you can not read Chinese, you will find the English information below the Chinese characters. I made three different interfaces: mobile, tablet, and desktop. On your computer, it wil also show a random image of your city.
+# City Weather App
+
+![ipad](./readmeImg/ipad.png)
+![kontich](./readmeImg/kontich.png)
+![dubai](./readmeImg/dubai.png)
+
+You can enter your city and the app will show you the next five days of weather in your city. Temperature will show together with a 'stamp' that describes the weather in Chinese. Don't worry if you can not read Chinese, you will find the English information below the Chinese characters. I made three different interfaces: mobile, tablet, and desktop. On your computer, it wil also show a random image of your city.
+
 [Check the weather of your city](https://jasmine8711.github.io/weather-app-/).
 
 ## Mission
-Learn how to use API and Axios. 
+
+Learn how to use API and Axios.
 Learn async, await and promise.
 Create a weather web app from API.
 
 ## features
 
 1. You can type in your city and press enter to check the weather , or press the button on the screen.
-1. The website will return you a nice designed chinese art style interface. you will have a tranditional chinese painting referrence the weater. 
+1. The website will return you a nice designed chinese art style interface. you will have a tranditional chinese painting referrence the weater.
 1. Temperature will display in the chinese stamp with a description of the weather in Chinese. Don't worry if you can not read Chinese , you will find the English information blow the Chinese characters.
 1. Display the date, week, time, description of the weather.
 1. display the highest temperature and the lowset temperaturn of the next 4 days.
