@@ -23,14 +23,14 @@ Create a weather web app from API.
 1. display the highest temperature and the lowset temperaturn of the next 4 days.
 1. On the computer screen , it shows the random pictures of the city, but it won't show on mobile and tablet.
 
-##What do i learn.
+# #What do i learn.
 
 1. What is API.
 1. Fetch API'' from https://openweathermap.org/api and https://unsplash.com/developers
 1. Axios.
 1. Async and await.
 
-##Challedge
+## Challedge
 When i get all the information from the API, it returns a list of data, data contains every 3 hours of weather in a day.
 I have to figure out how to get the min temperature and max temperature of the day .
 Here is my baby steps :
